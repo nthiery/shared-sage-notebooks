@@ -2,9 +2,11 @@
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/nthiery/shared-sage-notebooks/master)
 
-I use this repository to publicly share some of my [SageMath](http://sagemath.org) documents, typically in the form of [http://jupyter.org](Jupyter) notebooks. This typically includes logbooks of quick demos or experimentations I wrote during a brainstorm with colleagues, and want to share thereafter.
-Thanks to [Binder](http://binder.org), they can then access and play
-with the notebook even if they do not have SageMath installed. Click
-on the above Binder badge to try.
+In this repository I publicly share some [SageMath](https://www.sagemath.org) documents,
+usually as [Jupyter](https://jupyter.org) notebooks, typically containing quick demos or
+experimentations written during a brainstorm with colleagues.
+
+Thanks to [Binder](https://mybinder.org), one can access these documents and play with them
+without needing to install SageMath. Click on the above Binder badge to try.
 
 There is no guarantee whatsoever on the quality of any document here!
