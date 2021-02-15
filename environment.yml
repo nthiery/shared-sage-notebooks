@@ -5,8 +5,6 @@ channels:
 
 dependencies:
 - sage
-- notebook
-- widgetsnbextension
 - rise
 - jupytext
 - pip
