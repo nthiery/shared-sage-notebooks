@@ -1,0 +1,15 @@
+name: sage
+
+channels:
+- conda-forge
+
+dependencies:
+- sage
+- notebook
+- widgetsnbextension
+- rise
+- jupytext
+- pip
+- pip:
+    - sage-explorer
+    - sage-combinat-widgets
