@@ -8,5 +8,6 @@ dependencies:
 - pip
 - pip:
     - jupytext
+    - rise
     - sage-explorer
     - sage-combinat-widgets
