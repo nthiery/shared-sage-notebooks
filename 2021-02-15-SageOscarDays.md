@@ -41,7 +41,7 @@ LRI/LISN, Université Paris-Sud/Saclay
 
 <br>
 View the (live) slides online:
-<a href="https://nbviewer.jupyter.org/github/nthiery/shared-sage-notebooks/blob/master/2020-02-19-AlcoveArt.md">
+<a href="https://mybinder.org/v2/gh/nthiery/shared-sage-notebooks/HEAD?filepath=2021-02-15-SageOscarDays.md">
 <img src="2021-02-15-SageOscarDays.qrcode.png" width="25%"></a>
 
 +++ {"slideshow": {"slide_type": "notes"}}
@@ -157,7 +157,11 @@ def f(la = la_input, mu = mu_input):
 
 +++ {"slideshow": {"slide_type": "subslide"}}
 
-### With a focus on modelling mathematics
+### And much much more!
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+### with a focus on modelling mathematics
 
 ```{code-cell} ipython3
 ---
@@ -207,7 +211,7 @@ for R in [SR,
 
 +++ {"slideshow": {"slide_type": "subslide"}}
 
-### Thanks to a Rich Type System
+### thanks to a Rich Type System
 
 ```{code-cell} ipython3
 ---
@@ -235,6 +239,22 @@ slideshow:
 Rings().Division().Finite()
 ```
 
-```{code-cell} ipython3
++++ {"slideshow": {"slide_type": "slide"}}
 
-```
+### Sage in its ecosystem
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+<img src="2021-02-15-SageOscarDays2-1.svg" width="90%">
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+<img src="2021-02-15-SageOscarDays2-2.svg" width="90%">
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+<img src="2021-02-15-SageOscarDays2-3.svg" width="90%">
+
++++ {"slideshow": {"slide_type": "subslide"}}
+
+<img src="2021-02-15-SageOscarDays2-4.svg" width="90%">
