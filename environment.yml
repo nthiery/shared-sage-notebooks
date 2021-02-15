@@ -5,9 +5,8 @@ channels:
 
 dependencies:
 - sage
-- rise
-- jupytext
 - pip
 - pip:
+    - jupytext
     - sage-explorer
     - sage-combinat-widgets
