@@ -98,7 +98,8 @@ Material to be taken from:
 - FLOC Talk https://hackmd.io/IZESWGzKSOCKJiC_tIP3pw
 - INI (Newton Institute): /home/nthiery/OpenDreamKit/demo-semigroup-representation-theory/2020-01-18-INI-implementing-semigroup-representation-theory.md
 - Sage Days 109 /home/nthiery/OpenDreamKit/demo-semigroup-representation-theory/2020-05-28-SageDay109-opendreamkit-debriefing.md
-- WOSSS: /opt/shared-sage-notebooks/2021-10-07-WoSSS.md
+- WOSSS 21: /opt/shared-sage-notebooks/2021-10-07-WoSSS.md
+- Miko 25: /home/nthiery/www/Talks/2025-05-17-MichaelKohlhaseFest/index.md
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -117,7 +118,7 @@ Material to be taken from:
 
 ## Musing on the computational mathematics software ecosystem
 
-+++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"height": "8.71428474547371%", "left": "-1.5654768262590681%", "position": "fixed", "top": "1.9312177385602678%", "width": "49.122025626046316%"}}}}, "slideshow": {"slide_type": "slide"}}
++++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"left": "0%", "position": "fixed", "top": "0%", "width": "50%"}}}}, "slideshow": {"slide_type": "slide"}}
 
 ### Mechanizing mathematics: the Tetrapod
 
@@ -131,22 +132,22 @@ How can computers help mathematicians?
 
 +++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "top": "15%", "width": "45%", "left": "0%"}}}}, "slideshow": {"slide_type": "fragment"}}
 
-:::{admonition} 📚Narration
+:::{admonition} 📚 Narration
 - Use cases: help express, organize, interconnect, navigate,
   synthesize, visualize mathematical knowledge
-- latex, jupyter, wikipedia, publishing services, ...
+- latex, jupyter, wikipedia, publishing services, generative AI, ...
 :::
 
 +++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "0%", "top": "65%", "width": "45%"}}}}, "slideshow": {"slide_type": "fragment"}}
 
 :::{admonition} 🤔 Deduction
-- Use cases: help formalize and certify knowledge
+- Use cases: help formalize and certify mathematical knowledge
 - Proof checkers, proof assistants, automated provers, ...
 :::
 
 +++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"left": "45%", "position": "fixed", "top": "15%", "width": "50%"}}}}, "slideshow": {"slide_type": "fragment"}}
 
-:::{admonition} 🖩**Computation** 
+:::{admonition} 🖩 **Computation** 
 - Use cases: help observe and explore; infer and test conjectures\
   even sometimes prove them
 - 🔭The mathematician's **telescope**
@@ -154,13 +155,14 @@ How can computers help mathematicians?
 
 +++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"left": "45%", "position": "fixed", "top": "65%", "width": "50%"}}}}, "slideshow": {"slide_type": "fragment"}}
 
-:::{admonition} 💾Tabulation
-- Use cases: help collect examples to explore; infer and test conjectures; record knowledge
-- Databases of mathematical objects
+:::{admonition} 💾 Concretization
+- Harvest, record, and classify examples
+- Use cases: help observe and explore; infer and test conjectures; record knowledge
+- The atlas of finite groups, the Online Encyclopedy of Integer Sequences, ...
 - 💡Mostly a cache of hard to compute or deduce knowledge
 :::
 
-+++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"height": "8.72222173781622%", "left": "48.18601335797991%", "position": "fixed", "top": "2.388889373294891%", "width": "45.267857142857146%", "zoom": "50%"}}}}, "slideshow": {"slide_type": null}}
++++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"left": "45%", "position": "fixed", "top": "2%", "width": "50%", "zoom": "50%"}}}}, "slideshow": {"slide_type": null}}
 
 :::{admonition} Big Math and the One-Brain Barrier – The Tetrapod Model of Mathematical Knowledge
 :class: seealso
@@ -171,7 +173,7 @@ Jacques Carette et al. In: Mathematical Intelligencer 43.1 (2021), pp. 78–87. 
 
 ## Concretely: what do we want to compute with?
 
-```{code-cell} ipython3
+```{code-cell}
 %display latex
 ```
 
@@ -215,11 +217,11 @@ And combinations!
 
 ### Calculus
 
-```{code-cell} ipython3
+```{code-cell}
 f = (cos(pi/4-x)-tan(x)) / (1-sin(pi/4 + x)); f
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: fragment
@@ -231,7 +233,7 @@ limit(f, x = pi/4, dir='minus')
 
 ### Solving equations
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: null
@@ -240,7 +242,7 @@ x,y = var('x,y')
 solve([x^2+y^2 == 1, y^2 == x^3 + x + 1], x, y)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 slideshow:
   slide_type: skip
@@ -477,7 +479,7 @@ Ideally: applying a theory morphism to guarantee semantic preservation
 :::{admonition} Requirements
 - **A communication channel**: shared memory, disk, pipe, (web)socket, ...
 - **A communication protocol**: e.g. https, scscp, ...
-- **Serialization / Deserialization**: e.g. conversion to/from a string of bytes
+- **Serialization / deserialization**: e.g. conversion to/from a string of bytes
 - **A format specification**; e.g. XML (syntax) + OpenMath content dictionary (semantic)
 - **Format conversion**
   - **syntax**: e.g.: JSON vs XML
@@ -521,11 +523,13 @@ E.g. thousands in Sage, compared to "matrices of floats" in Matlab, Numpy, ...
 
 with very different algorithmic complexity
 
-E.g. for polynomials: sparse, dense, recursive, straight line
+E.g. for polynomials: sparse, dense, recursive, factored, straight line
 program, evaluation, ...
 
 %Objects at different levels of abstraction
 :::
+
++++ {"slideshow": {"slide_type": "fragment"}}
 
 :::{admonition} Semiformal is good enough (unlike in proof systems)
 :class: hint
@@ -547,7 +551,7 @@ addition, multiplication, commutativity, metric space, ...
 Groups, Fields, graded commutative algebras, ...
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 #### Social barriers
 
@@ -583,7 +587,7 @@ By country, culture, domain, system, ...
 - research system versus production system for research
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 #### Technical barriers
 
@@ -612,114 +616,6 @@ E.g. having to install SageMath to use just a few of its lines
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-### Case study: Open Math 1993-
-
-:::{admonition} Goal
-$N$ systems; can we avoid $N \times N$ interfaces ?
-:::
-
-+++ {"slideshow": {"slide_type": "fragment"}}
-
-:::{admonition} Approach
-:class: hint
-Standardize serialization format to exchange mathematical data across systems
-- **Syntax**: XML, json, binary
-- **Semantic**: defined by content dictionaries (CD)
-:::
-
-+++ {"slideshow": {"slide_type": "fragment"}}
-
-:::{admonition} Socio technical barriers
-:class: warning
-- Fragmented communities, many objects, many representations
-- Agreeing on content dictionaries for polynomials was already hard; scaling?
-- After twenty years, little adoption
-:::
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### Case study: MitM
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### Case study: the Sage / GAP interface
-
-- **Problem**
-
-  Use funtionalities from a system `A` in a system `B` written in a different language
-
-- **Data exchange**
-
-  - Objects returned as references (handles):
-
-    - Few conversions
-    - Reduced overhead
-    - Manipulate from B objects of A with no native representation in B
-
-- **Binding**
-
-  - Originally: a pexpect interface
-
-  - Now: ABI (direct calls at the C level)
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-- **Adapting**
-
-  - Currently:
-
-    - monolithic adapters for some cases (groups, ...)
-
-  - In progress:
-
-    - modular adapters, exploiting the category hierarchy and semantic alignments
-
-    - objects returned as reference + semantic
-
-    - alignment `B.cardinality() -> Size(A)` attached to the category of sets
-
-    - alignment `B.conjugacy_classes() -> ConjugacyClasses(A)` attached to the category of groups
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### Case study: Oscar
-
-:::{admonition} Approach: tight language-level integration with Julia
-:class: seealso
-
-See next talk!
-:::
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
-### Case study: computing with semigroups
-
-Author: James B. Mitchel et al.
-
-- **Problems**
-
-  - Speeding GAP's semigroup package while increasing its availability
-
-- **Approach**
-
-  - Rewrite as a standalone templated C++ library
-
-  - API: many iterations until converging to a natural API (no memory management, ...)
-
-  - Bindings: from Python: on-the-fly binding using cppyy (also tried Cython, Pybind11, ...)
-
-  - Adaptation: a thin layer for now; could use alignments
-
-libSemigroups: C++ library for computing with semigroups
-
-- With handcrafted GAP bindings
-- With handcrafted Python bindings (PyBind11)
-
-  library level access to data structures and function calls
-  no adaptation
-
-+++ {"slideshow": {"slide_type": "slide"}}
-
 ### Case study: HPCombi
 
 F. Hivert
@@ -742,6 +638,229 @@ applications when combined with:
 
 => harder to compose
 
++++ {"slideshow": {"slide_type": "slide"}}
+
+### Case study: reusable high performance low-level libraries
+
+:::{admonition} 2000-2015: 3+ implementations of semigroup algorithms
+- the C-application Semigroupe (Pin et al.): super fast core algorithms
+- the Semigroups library in GAP (Mitchell et al.): feature rich 
+- the Semigroups library in Sage (T et al.): bare minimum needed for representation theory
+:::
+
+:::{admonition} Goal
+- a unique super fast implementation of core algorithms
+- reusable from many systems
+:::
+
+:::{admonition} Approach (James B. Mitchel et al.)
+1. Standalone templated C++ library: libSemigroups\
+   With carefuly crafted natural API (minimize memory management; took many iterations)
+2. Library access to data structures and procedure calls
+   - from C++ programms
+   - interactively in Jupyter with the cling interpreter
+   - from GAP through handcrafted bindings
+   - from Python and Sage through handcrafted bindings (PyBind11; also tried Cython, cppyy, ...)
+   - from Sage and OSCAR through GAP
+3. Adaptation: a thin layer for now; could use alignments
+
+% One of ODK case study for extracting independent low-level libraries C++
+% - libsemigroups API design:<br>
+%  J. Mitchell with F. Hivert and  N. Thiéry: Cernay 2017, 2018
+% - libsemigroups Python bindings<br>
+%  J. Mitchell and  N. Thiéry <i class="logo"></i>: Edinburgh, 2017, Cernay 2017, 2018
+% - libsemibroups usable directly in Jupyter thanks to xeus-cling<br>
+%  S. Corlay, J. Mabile, L. Gouarin <i class="logo"></i>
+% - libsemigroups packaging<br>
+%  J. Mitchell and  N. Thiéry <i class="logo"></i>: Jupyter for Mathematics Workshop, Edinburgh, 2017
+%/home/nthiery/OpenDreamKit/demo-semigroup-representation-theory/2020-05-28-SageDay109-opendreamkit-debriefing.md
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### Case study: the GAP ⇒ Sage interface
+
+:::{admonition} Goal
+Use functionalities from a large application A (GAP) in a large application B (Sage) written in a different language
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} 🥉 Original approach (2004-): B calls the application A as a subprocess (pexpect)
+- Communication channel: pipes
+- (de)Serialization to/from text in A's language format
+- Bespoke conversions for basic objects
+- Other objects returned as ***references***:
+    - 👍 few conversions
+    - 👍 reduced overhead
+    - 👍 Manipulate from B objects of A with no native representation in B
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} 🥈 Improvement (2013-2019): B calls the *C-library* A through bindings
+
+Thanks to hard work by the GAP+friends community:
+- Refactoring of GAP from an application to a C library (libgap)\
+  ⇒ other use cases
+- Refactoring of GAP's build system
+:::
+%- libgap used to be a fragile hard to maintain fork of GAP<br>
+%  Volker Braun
+  
+%- libgap is now a standard feature of GAP<br>
+%  M. Horn, A. Konovalov <i class="logo"></i>, M. Pfeiffer <i class="logo"></i>, J. Demeyer <i class="logo"></i>, E. M. Bray <i class="logo"></i>, N. Thiéry <i class="logo"></i>, D. Pasechnik<i class=logo></i><br>
+%  GAP-Sage Days 2016, 2017, 2018
+
+%- Made possible by GAP's build system refactoring<br>
+%  M. Horn, A. Konovalov <i class="logo"></i>, ...
+%- A major step for sustainable packaging of GAP and Sage
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### Case study: The High Road, Episode 1: Open Math 1993-
+
+:::{admonition} Goal
+$N$ systems\
+🤔 can we avoid $N \times N$ interfaces ?
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} Approach: ontologies
+:class: hint
+Standardize serialization format to exchange mathematical data across systems
+- **Syntax**: structured data, represented as XML, json, binary
+- **Semantic** (the **meaning of data**): defined by content dictionaries
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} Socio technical barrier: agreeing on the meaning of data is hard
+:class: warning
+- Even just for polynomials!
+- Many (decades old) computational and database systems
+- Many complex objects, many representations
+- Used by many communities
+- 😢After twenty years, little adoption
+:::
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### Case study: The High Road, Episode 2: Math-in-the-Middle 2015-
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{figure} media/MitM.png
+:width: 90%
+:::
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+::::{admonition} Math-in-the-Middle: Math knowledge at the service of interoperability
+:class: hint
+
+1. Formalize/extract bespoke ontologies for each system independently
+2. Align these ontologies to the mathematical concepts
+
+:::{figure} media/mistargraph.svg
+:alt: Math-in-the-Middle: a collection of systems, with their bespoke ontologies aligned to Math knowledge in the middle
+:width: 20%
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{figure} media/sage-category-graph.png
+:width: 80%
+:align: left
+(A piece of) Sage's ontology
+:::
+::::
+
++++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "65%", "top": "10%", "width": "40%", "z-index": "10"}}}}}
+
+:::{figure} media/gap-graph.png
+:width: 100%
+
+A piece of GAP's ontology
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} Status: prototypes, [CICM'16](https://doi.org/10.1007/978-3-319-42547-4_9), [MACIS'17](https://doi.org/10.1007/978-3-319-72453-9_14)
+- 👍 Easy socially and technically (local)
+- 👍 Can be incremental
+- 😓 Still takes work and motivation
+- 😢Little adoption
+:::
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+- **Adapting**
+
+  - Currently:
+
+    - monolithic adapters for some cases (groups, ...)
+
+  - In progress:
+
+    - modular adapters, exploiting the category hierarchy and semantic alignments
+
+    - objects returned as reference + semantic
+
+    - alignment `B.cardinality() -> Size(A)` attached to the category of sets
+
+    - alignment `B.conjugacy_classes() -> ConjugacyClasses(A)` attached to the category of groups
+
+#### Sage-GAP lightweight Math-in-the-Middle interface
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+#### In action
+
+```{code-cell}
+---
+slideshow:
+  slide_type: fragment
+---
+A = T5.algebra(QQ); A
+```
+
+```{code-cell}
+---
+slideshow:
+  slide_type: fragment
+---
+A.an_element() ^ 3
+```
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+#### How it works
+- Enriched libgap handles with
+- Semantic carried over using
+- Alignments provided as annotations
+```python
+    @semantic(mmt="Group", variant="multiplicative")
+    class Groups:
+
+        class ParentMethods:
+
+            @semantic(gap="GeneratorsOfGroup", codomain=Family[Self])
+            @abstract_method
+            def group_generators(self):
+                pass
+```
+
++++ {"slideshow": {"slide_type": "slide"}}
+
+### Case study: Oscar
+
+:::{admonition} Approach: tight language-level integration with Julia
+:class: seealso
+
+See next talk!
+:::
+
 
 ### Visualisation
 
@@ -752,19 +871,48 @@ des humains
 
 ### Combining it all together
 
++++ {"slideshow": {"slide_type": "slide"}}
+
+#### Why is that impressive?
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+- Sage uses GAP for groups
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+- <span class=modular>GAP uses MeatAxe (C library)</span><br>
+  parallelism of MeatAxe64 <i class="logo"></i>
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+- Sage uses GAP's <span class=semigroup>Semigroup packages for semigroups</span><br>
+  J. Mitchell et al.
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+- <span class=semigroup>Semigroups uses libsemigroups (C++ library)</span><br>
+  J. Mitchell, inspired by Semigroupe of J.-E. Pin
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+- libsemigroups uses HPC Combi <i class="logo"></i><br>
+  F. Hivert <i class="logo"></i>, with feedback from J. Mitchell
+
+
 :::{figure} media/okada-monoid-module.svg
 :::
 
-+++ {"slideshow": {"slide_type": "slide"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "-0.7174479961395264%", "top": "1.3865746392144096%", "width": "53.02343845367432%", "height": "27.606480916341148%"}}}}}
++++ {"slideshow": {"slide_type": "slide"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "-5%", "top": "0%", "width": "55%"}}}}}
 
 ## Conclusion
 
-:::{admonition} A large ecosystem of computational mathematics software
+:::{admonition} A large ecosystem of<br> computational mathematics software
 - For historical, technical and social reasons
 - 👍 Modularity
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "56.279945373535156%", "top": "0.539351569281684%", "width": "41.690101623535156%", "height": "25.92129601372613%"}}}}}
++++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "48%", "top": "6%", "width": "55%"}}}}}
 
 :::{admonition} Sustainability aim: promote an ecosystem where
 :class: hint
@@ -773,19 +921,21 @@ des humains
 - People and systems **collaborate and strive**
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "2.0611977577209473%", "top": "40.61805725097656%", "width": "50.031251907348626%", "height": "35.787039862738716%"}}}}}
++++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "-5%", "top": "37%", "width": "55%"}}}}}
 
-:::{admonition} Critical need for interoperability
+:::{admonition} Critical need for interoperability A ⇒ B
 :class: hint
-- 🥉**Bronze:** enable cross-system procedure calls and references
-- 🥈**Silver:** same, using bindings and shared memory for performance\
-  Cython, Pythran, Pybind11, cppyy, julia facilities, ...
-- 🥇**Gold:** enable usage as native objects of the host system through adaptors
-- 🏆**Diamond:** align type systems through common ontologies\
-  to automatically generate adaptors and data conversions
+- 🥉**Bronze:** cross-system procedure calls and references
+- 🥈**Silver:** same with shared memory for performance
+  1. A available as C/C++ library
+  2. bindings: Cython, Pythran, Pybind11, cppyy, julia facilities, ...
+- 🥇**Gold:** A-references as native B-objects through adaptors
+- 🏆**Diamond:** align type systems through common ontologies
+  1. N interfaces instead of N ⨉ N
+  2. automatically generate adaptors and data conversions
 :::
 
-+++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "53.91406059265137%", "top": "36.506945292154946%", "width": "46.76041603088379%", "height": "44.19444613986545%"}}}}}
++++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "48%", "top": "37%", "width": "55%"}}}}}
 
 :::{admonition} Partial success
 :class: attention
@@ -793,13 +943,13 @@ des humains
 - 👍 Advanced computations involving deep integration
 - 🥇 Large scale integration in e.g. SageMath\
   🚧 but bespoke interfaces
-- 🏆 General approaches: OpenMath, Math-in-the-Middle\
+- 🏆 High road approaches: OpenMath, Math-in-the-Middle\
   😢 but little adoption in production
 - Need more interoperability between general purpose systems\
   E.g. SageMath/Oscar
 :::
 
-+++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "20.869789123535156%", "top": "85.10879516601562%", "width": "29.541666507720947%", "height": "13.51620356241862%", "zoom": "168%"}}}}, "slideshow": {"slide_type": "fragment"}}
++++ {"@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "25%", "top": "90%", "width": "55%", "zoom": "200%"}}}}, "slideshow": {"slide_type": "fragment"}}
 
 🙏 Thank you! 🙏
 
