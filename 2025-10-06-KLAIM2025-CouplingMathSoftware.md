@@ -274,7 +274,7 @@ And combinations thereof:
 :::{image} media/calcul-operade.png
 :::
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### Graph theory
 :::{image} media/crystal-A3-32.svg
@@ -319,7 +319,7 @@ And combinations thereof:
 :class: attention
 :::
 
-+++ {"slideshow": {"slide_type": "subslide"}}
++++ {"slideshow": {"slide_type": "slide"}}
 
 ### The Unicorn way: “There can be only one”
 
