@@ -71,7 +71,7 @@ specialized systems, the development of some of which like Antic, GAP,
 Maxima, Polymake, PARI/GP, or Singular required the dedicated work of
 dozens of researchers for up to four decades. SageMath, for example,
 combines together more than a hundred systems and databases, adding
-over a million lines of code, and offers thousands of mathematical
+over a million lines of code, and offers hundreds of mathematical
 objects to compute with. A major challenge in the design and
 implementation of such a system is therefore composability.
 
@@ -519,7 +519,7 @@ Ideally: applying a theory morphism to guarantee semantic preservation
 :::{admonition} Many kinds of objects
 :class: warning
 
-E.g. thousands in Sage, compared to "matrices of floats" in Matlab, Numpy, ...
+E.g. hundreds in Sage, compared to "matrices of floats" in Matlab, Numpy, ...
 :::
 
 :::{admonition} Many data representations
@@ -543,10 +543,10 @@ program, evaluation, ...
 
 +++ {"slideshow": {"slide_type": "fragment"}}
 
-:::{admonition} Few core concepts ...
+:::{admonition} Not that many core concepts ...
 :class: hint
  
-addition, multiplication, commutativity, metric space, ...
+cardinality, addition, multiplication, commutativity, metric space, ...
 :::
 
 :::{admonition} but many interesting ways to combine them
@@ -559,9 +559,10 @@ Groups, Fields, graded commutative algebras, ...
 
 #### Social barriers
 
-:::{admonition} Closed science and the Montaigu-Capulet syndrome
+:::{admonition} Closed science
 :class: warning
-Won't use code from / share code with XXX
+- Won't use code from / share code with XXX (Montaigu-Capulet syndrome)
+- Closed licenses, ...
 :::
 
 +++ {"slideshow": {"slide_type": "fragment"}}
@@ -712,8 +713,8 @@ Sparse linear algebra scale:
 
 :::{admonition} Example: integrating the Computer Algebra System GAP (A) in SageMath (B)
 Large application scale:
-- thousands of objects types and functions
-- dozens of developers over 40 years
+- hundreds of objects types, thousands of functions
+- dozens of developers over 40 years + hundreds of developers of GAP packages
 :::
 
 +++ {"slideshow": {"slide_type": "fragment"}}
@@ -840,10 +841,10 @@ A piece of GAP's ontology
 
 ### Case study: lightweight Math-in-the-Middle interface through deep ontologies
 
-:::{admonition} Example: Adaptation in the GAP => Sage interface
+:::{admonition} Example: Adaptation in the GAP ⇒ Sage interface
 Scale:
-- T: thousands of types of objects
-- few core concepts / operations: addition, multiplication, commutative, metric spaces, ...
+- T: hundreds of types of objects
+- dozens of core concepts / operations: addition, multiplication, commutative, metric spaces, ...
 :::
 
 +++ {"slideshow": {"slide_type": "fragment"}}
@@ -851,8 +852,8 @@ Scale:
 :::{admonition} 👍 A GAP group G can be used as a native Sage group
 
 Examples of hard coded alignments:
-- `G.cardinality()` in Sage: mapped to `Size(G)` in GAP
-- `G.group_generators()` in Sage: mapped to `GroupGenerators(G)` in GAP.
+- `G.cardinality()` in Sage: aligned to `Size(G)` in GAP
+- `G.group_generators()` in Sage: aligned to `GroupGenerators(G)` in GAP.
 :::
 
 +++ {"slideshow": {"slide_type": "fragment"}}
@@ -896,15 +897,57 @@ A module of the okada monoid [Hivert'25]
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
-- graphviz visualization\
-  of the representation theory of a semigroup computed by ...
-- Sage (in Python)\
-  by natively integrating ...
-- semigroups from GAP's Semigroup packages (in GAP)\
-  exploiting high performance core algorithms of ...
-- the libsemigroups C++ library (in C++)\
-  exploiting high performance tiny data structures of ...
-- HPC Combi (in C++ + SIMD)
+### Coupling it all together
+
+:::{admonition} Graph visualization
+Software: graphviz
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} Representation theory
+Software: Sage (in Python)
+
+Interface: tikz export ...
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} High level semigroup algorithms
+
+Software: GAP's Semigroup packages (in GAP)
+
+Interface: C bindings + references + semantic adapters
+
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} High performance core semigroup algorithms
+
+Software: libsemigroups library (in C++)
+
+Interface: C++ bindings
+
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} High performance tiny data structures
+Software: HPC Combi (in C++ + SIMD)
+:::
+
++++ {"slideshow": {"slide_type": "fragment"}}
+
+:::{admonition} Linear algebra
+Software: Linbox, ... (in C++)
+
+Interface: C++ bindings 
+:::
+
+:::{admonition} Arithmetic
+Software: Givaro, GMP, FLINT, (in C++)
+:::
 
 +++ {"slideshow": {"slide_type": "slide"}}
 
@@ -920,9 +963,9 @@ See next talk for other cool software coupling!
 
 ## Conclusion
 
-:::{admonition} A large ecosystem of<br> computational mathematics software
-- For historical, technical and social reasons
-- 👍 Modularity
+:::{admonition} A large ecosystem of coupled<br> computational mathematics software
+- 👍 For modularity and technical reasons
+- For historical and social reasons
 :::
 
 +++ {"slideshow": {"slide_type": "fragment"}, "@deathbeds/jupyterlab-fonts": {"styles": {"": {"body[data-jp-deck-mode='presenting'] &": {"position": "fixed", "left": "48%", "top": "6%", "width": "55%"}}}}}
@@ -953,11 +996,12 @@ See next talk for other cool software coupling!
 :::{admonition} Partial success
 :class: attention
 - 🥈 Reuse through shared low level libraries
+- 🥈 Reuse by turning applications into libraries
 - 👍 Advanced computations involving deep integration
 - 🥇 Large scale integration in e.g. SageMath\
-  🚧 but bespoke interfaces
+  🚧 often bespoke interfaces
 - 🏆 High road approaches: OpenMath, Math-in-the-Middle\
-  😢 but little adoption in production
+  😢 little adoption in production
 - Need more interoperability between general purpose systems\
   E.g. SageMath ⇐⇒ Oscar
 :::
